@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
   const [name, setName] = useState("");
@@ -8,7 +8,6 @@ export const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { register } = useAuth();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +20,7 @@ export const RegisterPage = () => {
 
     try {
       await register(email, password, name);
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
       setError("Failed to register");
     }

@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     }, SESSION_TIMEOUT);
 
     setInactivityTimer(newTimer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inactivityTimer]);
 
   // Set up event listeners for user activity
@@ -56,6 +57,7 @@ export const AuthProvider = ({ children }) => {
         clearTimeout(inactivityTimer);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, resetInactivityTimer]);
 
   // Load data from localStorage on initial render
@@ -171,6 +173,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   return useContext(AuthContext);
 };
